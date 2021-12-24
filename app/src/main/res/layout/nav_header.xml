@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="196dp"
+    android:background="#0D2241"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/welcomeUser"
+        android:textAlignment="center"
+        android:textColor="@color/white"/>
+
+    <!--<TextView
+        android:width="160dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightgray"
+        android:fontFamily="sans-serif"
+        android:drawableStart="@drawable/ic_logout"
+
+        android:text="Logout"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAlignment="center"
+        android:paddingVertical="11dp"
+        android:drawablePadding="5dp"/> -->
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:backgroundTint="@color/red1"
+        android:fontFamily="sans-serif"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minHeight="45dp"
+        android:paddingVertical="0dp"
+        android:text="Logout"
+        android:textAllCaps="false"
+        app:cornerRadius="0dp"
+        app:icon="@drawable/ic_logout"
+        app:iconGravity="textStart"
+        app:iconPadding="4dp"
+        android:letterSpacing="0"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="Change Password"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif"
+        app:cornerRadius="0dp"
+        android:insetBottom="0dp"
+        android:insetTop="0dp"
+        android:paddingVertical="0dp"
+        android:minHeight="45dp"
+        android:letterSpacing="0"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white"/>
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Change Password"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAlignment="center"
+        android:paddingVertical="11dp"
+        android:background="@color/lightgray"
+        />-->
+
+</LinearLayout>

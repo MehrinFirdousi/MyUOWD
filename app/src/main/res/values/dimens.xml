@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="buttonWidth">90dp</dimen>
+    <dimen name="buttonHeight">98dp</dimen>
+    <dimen name="buttonIconSize">60dp</dimen>
+    <dimen name="buttonIconPadding">15dp</dimen>
+</resources>

@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgcolor"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="30dp"
+        android:paddingBottom="70dp"
+        tools:context=".HomeFragment">
+
+        <TextView
+            android:id="@+id/studentSystems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="25dp"
+            android:text="@string/studentSysLabel"
+            android:textAllCaps="true"
+            android:textColor="@color/darkgray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/solsButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_sols"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/emailButton"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/studentSystems" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/emailButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_email"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/moodleButton"
+            app:layout_constraintStart_toEndOf="@+id/solsButton"
+            app:layout_constraintTop_toBottomOf="@id/studentSystems" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/moodleButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_moodle"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/emailButton"
+            app:layout_constraintTop_toBottomOf="@id/studentSystems" />
+
+        <TextView
+            android:id="@+id/solsLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Sols"
+            app:layout_constraintEnd_toStartOf="@+id/emailLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/solsButton" />
+
+        <TextView
+            android:id="@+id/emailLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="E-mail"
+            app:layout_constraintEnd_toStartOf="@+id/moodleLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/solsLabel"
+            app:layout_constraintTop_toBottomOf="@id/emailButton" />
+
+        <TextView
+            android:id="@+id/moodleLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Moodle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/emailLabel"
+            app:layout_constraintTop_toBottomOf="@id/moodleButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="solsLabel" />
+
+        <!-- GENERAL INFORMATION -->
+
+        <TextView
+            android:id="@+id/generalInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="25dp"
+            android:text="@string/generalInfoLabel"
+            android:textAllCaps="true"
+            android:textColor="@color/darkgray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/academicCalendarButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginVertical="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_academiccalendar"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/busRoutesButton"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/generalInformation" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/busRoutesButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginVertical="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_busroutes"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/staffDirectoryButton"
+            app:layout_constraintStart_toEndOf="@+id/academicCalendarButton"
+            app:layout_constraintTop_toBottomOf="@id/generalInformation" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/staffDirectoryButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginVertical="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_staffdirectory"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/busRoutesButton"
+            app:layout_constraintTop_toBottomOf="@id/generalInformation" />
+
+        <TextView
+            android:id="@+id/academicCalendarLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Academic Calendar"
+            app:layout_constraintEnd_toStartOf="@+id/busRoutesLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/academicCalendarButton" />
+
+        <TextView
+            android:id="@+id/busRoutesLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Bus Routes"
+            app:layout_constraintEnd_toStartOf="@+id/staffDirectoryLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/academicCalendarLabel"
+            app:layout_constraintTop_toBottomOf="@id/busRoutesButton" />
+
+        <TextView
+            android:id="@+id/staffDirectoryLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Staff Directory"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/busRoutesLabel"
+            app:layout_constraintTop_toBottomOf="@id/staffDirectoryButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="academicCalendarLabel,busRoutesLabel,staffDirectoryLabel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/formsButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginVertical="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_forms"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/degreePlannerButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/degreePlannerButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginVertical="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_degreeplanners"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/myTimetableButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/formsButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/myTimetableButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginVertical="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_mytimetable"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/degreePlannerButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
+
+        <TextView
+            android:id="@+id/formsLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Forms"
+            app:layout_constraintEnd_toStartOf="@+id/degreePlannerLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/formsButton" />
+
+        <TextView
+            android:id="@+id/degreePlannerLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Degree Planners"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/myTimetableLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/formsLabel"
+            app:layout_constraintTop_toBottomOf="@id/degreePlannerButton" />
+
+        <TextView
+            android:id="@+id/myTimetableLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="My\nTimetable"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/degreePlannerLabel"
+            app:layout_constraintTop_toBottomOf="@id/myTimetableButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="formsLabel,degreePlannerLabel,myTimetableLabel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/policiesButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginVertical="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_policies"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/campusMapButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier3" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/campusMapButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginVertical="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_campusmap"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/timetablesButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/policiesButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier3" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/timetablesButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginVertical="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_subjectsoffered"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/campusMapButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier3" />
+
+        <TextView
+            android:id="@+id/policiesLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Policies"
+            app:layout_constraintEnd_toStartOf="@+id/campusMapLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/policiesButton" />
+
+        <TextView
+            android:id="@+id/campusMapLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Campus\nMap"
+            app:layout_constraintEnd_toStartOf="@+id/timetablesLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/policiesLabel"
+            app:layout_constraintTop_toBottomOf="@id/campusMapButton" />
+
+        <TextView
+            android:id="@+id/timetablesLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Timetables"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/campusMapLabel"
+            app:layout_constraintTop_toBottomOf="@id/timetablesButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="policiesLabel,campusMapLabel,timetablesLabel" />
+
+        <!-- STUDENT SERVICES -->
+
+        <TextView
+            android:id="@+id/studentServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="25dp"
+            android:text="@string/studentServicesLabel"
+            android:textAllCaps="true"
+            android:textColor="@color/darkgray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier4" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/libraryButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_library"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/graduationButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/studentServices" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/graduationButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_graduation"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/scholarshipButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/libraryButton"
+            app:layout_constraintTop_toBottomOf="@id/studentServices" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/scholarshipButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_scholarship"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/graduationButton"
+            app:layout_constraintTop_toBottomOf="@id/studentServices" />
+
+        <TextView
+            android:id="@+id/libraryLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Library"
+            app:layout_constraintEnd_toStartOf="@+id/graduationLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/libraryButton" />
+
+        <TextView
+            android:id="@+id/graduationLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Graduation"
+            app:layout_constraintEnd_toStartOf="@+id/scholarshipLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/libraryLabel"
+            app:layout_constraintTop_toBottomOf="@id/graduationButton" />
+
+        <TextView
+            android:id="@+id/scholarshipLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Scholarship"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/graduationLabel"
+            app:layout_constraintTop_toBottomOf="@id/scholarshipButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="libraryLabel,graduationLabel,scholarshipLabel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/careerDevButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_careerdevelopment"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/transportationButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/transportationButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_transportation"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/careersPortalButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/careerDevButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/careersPortalButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_careersportal"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/transportationButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier5" />
+
+        <TextView
+            android:id="@+id/careerDevLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Career Development Center"
+            app:layout_constraintEnd_toStartOf="@+id/transportationLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/careerDevButton" />
+
+        <TextView
+            android:id="@+id/transportationLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Transportation"
+            app:layout_constraintEnd_toStartOf="@+id/careersPortalLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/careerDevLabel"
+            app:layout_constraintTop_toBottomOf="@id/transportationButton" />
+
+        <TextView
+            android:id="@+id/careersPortalLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Careers Portal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/transportationLabel"
+            app:layout_constraintTop_toBottomOf="@id/careersPortalButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="careerDevLabel,transportationLabel,careersPortalLabel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/registrarsButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_registrar"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/srcButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier6" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/srcButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_transportation"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/uowdxButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/registrarsButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier6" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/uowdxButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_careersportal"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/srcButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier6" />
+
+        <TextView
+            android:id="@+id/registrarsLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Registrars"
+            app:layout_constraintEnd_toStartOf="@+id/srcLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registrarsButton" />
+
+        <TextView
+            android:id="@+id/srcLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="SRC"
+            app:layout_constraintEnd_toStartOf="@+id/uowdxLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/registrarsLabel"
+            app:layout_constraintTop_toBottomOf="@id/srcButton" />
+
+        <TextView
+            android:id="@+id/uowdxLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="UOWDx"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/srcLabel"
+            app:layout_constraintTop_toBottomOf="@id/uowdxButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="registrarsLabel,srcLabel,uowdxLabel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/residencesButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_registrar"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/studentLifeButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier7" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/studentLifeButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_transportation"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/studentVisaButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/residencesButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier7" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/studentVisaButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_careersportal"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/studentLifeButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier7" />
+
+        <TextView
+            android:id="@+id/residencesLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Residences"
+            app:layout_constraintEnd_toStartOf="@+id/studentLifeLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/residencesButton" />
+
+        <TextView
+            android:id="@+id/studentLifeLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Student Life"
+            app:layout_constraintEnd_toStartOf="@+id/studentVisaLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/residencesLabel"
+            app:layout_constraintTop_toBottomOf="@id/studentLifeButton" />
+
+        <TextView
+            android:id="@+id/studentVisaLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Student Visa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/studentLifeLabel"
+            app:layout_constraintTop_toBottomOf="@id/studentVisaButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="residencesLabel,studentLifeLabel,studentVisaLabel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/financeButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_transportation"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier8" />
+
+        <TextView
+            android:id="@+id/financeLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Finance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/financeButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="financeLabel" />
+
+        <TextView
+            android:id="@+id/others"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="25dp"
+            android:text="@string/othersLabel"
+            android:textAllCaps="true"
+            android:textColor="@color/darkgray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier9" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/socialMediaButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_registrar"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/eventsCalendarButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/others" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/eventsCalendarButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_transportation"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toStartOf="@+id/onlineFormsButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/socialMediaButton"
+            app:layout_constraintTop_toBottomOf="@id/others" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onlineFormsButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_careersportal"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/eventsCalendarButton"
+            app:layout_constraintTop_toBottomOf="@id/others" />
+
+        <TextView
+            android:id="@+id/socialMediaLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Social Media"
+            app:layout_constraintEnd_toStartOf="@+id/eventsCalendarLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/socialMediaButton" />
+
+        <TextView
+            android:id="@+id/eventsCalendarLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Events Calendar"
+            app:layout_constraintEnd_toStartOf="@+id/onlineFormsLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/socialMediaLabel"
+            app:layout_constraintTop_toBottomOf="@id/eventsCalendarButton" />
+
+        <TextView
+            android:id="@+id/onlineFormsLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Online Forms"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/eventsCalendarLabel"
+            app:layout_constraintTop_toBottomOf="@id/onlineFormsButton" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="socialMediaLabel,eventsCalendarLabel,onlineFormsLabel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/studiosityButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_registrar"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="@+id/eventsCalendarButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="@id/socialMediaButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier10" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onlineBookStoreButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_transportation"
+            app:iconSize="@dimen/buttonIconSize"
+            app:iconTint="@color/red2"
+            app:layout_constraintEnd_toEndOf="@+id/onlineFormsButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/eventsCalendarButton"
+            app:layout_constraintTop_toBottomOf="@id/barrier10" />
+
+        <TextView
+            android:id="@+id/studiosityLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Studiosity"
+            app:layout_constraintEnd_toEndOf="@+id/studiosityButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/studiosityButton"
+            app:layout_constraintTop_toBottomOf="@id/studiosityButton" />
+
+        <TextView
+            android:id="@+id/onlineBookStoreLabel"
+            style="@style/HomeTextStyle"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Online Book Store"
+            app:layout_constraintEnd_toEndOf="@+id/onlineBookStoreButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/onlineBookStoreButton"
+            app:layout_constraintTop_toBottomOf="@id/onlineBookStoreButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

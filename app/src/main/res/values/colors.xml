@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navyuow_100">#FF0D2241</color>
+    <color name="red1">#d20001</color>
+    <color name="red2">#cc0003</color>
+    <color name="blue">#0047bb</color>
+    <color name="lightgray">#b0bfc4</color>
+    <color name="darkgray">#737277</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bgcolor">#EFEEF3</color>
+</resources>
+

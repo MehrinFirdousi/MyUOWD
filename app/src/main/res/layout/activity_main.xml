@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navdrawer_layout"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbarMain"
+            layout="@layout/toolbar1"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/bottom_nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabBackground="@drawable/bottom_nav_select"
+            app:tabTextColor="@color/bottom_nav_color"
+            app:tabIconTint="@color/bottom_nav_color"
+            app:tabIndicatorHeight="0dp"
+            app:tabTextAppearance="@style/TabStyle"
+            app:tabMaxWidth="0dp"
+            app:tabGravity="fill">
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/homeTab"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="Home"
+                android:icon="@drawable/ic_home_24"/>
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/newsTab"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="News Feed"
+                android:icon="@drawable/ic_news"/>
+        </com.google.android.material.tabs.TabLayout>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/nav_view"
+        android:background="@color/black"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_drawer"
+        app:itemTextColor="@color/white"
+        app:itemShapeFillColor="@color/blue"
+        app:itemIconTint="@color/white"
+        app:itemIconSize="30dp"
+        app:itemShapeInsetBottom="1dp"
+        app:itemShapeInsetTop="1dp"
+        app:itemShapeInsetStart="2dp"
+        app:itemShapeInsetEnd="2dp"
+        app:itemShapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Nav.Square"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/userProfileContainer"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
+
+    <!-- test hello world
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />-->
+
+    <!-- same bottom navigation but with BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemBackground="@drawable/bottom_nav_select"
+        />-->

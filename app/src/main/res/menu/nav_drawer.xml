@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_timetable"
+            android:icon="@drawable/ic_timetables"
+            android:title="Timetables" />
+        <item
+            android:id="@+id/nav_academic_cal"
+            android:icon="@drawable/ic_academiccalendar"
+            android:title="Academic Calendar" />
+        <item
+            android:id="@+id/nav_forms"
+            android:icon="@drawable/ic_forms"
+            android:title="Forms" />
+        <item
+            android:id="@+id/nav_policies"
+            android:icon="@drawable/ic_policies"
+            android:title="Policies" />
+        <item
+            android:id="@+id/nav_degreeplanner"
+            android:icon="@drawable/ic_degreeplanners"
+            android:title="Degree Planners" />
+        <item
+            android:id="@+id/nav_staffdirectory"
+            android:icon="@drawable/ic_staffdirectory"
+            android:title="Staff Directory" />
+        <item
+            android:id="@+id/nav_eventcalendar"
+            android:icon="@drawable/ic_eventscalendar_old"
+            android:title="Events Calendar" />
+        <item
+            android:id="@+id/nav_subjectsoffered"
+            android:icon="@drawable/ic_subjectsoffered"
+            android:title="Subjects Offered" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="Feedback" />
+    </group>
+</menu>
