@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">MyUOWD</string>
     <string name="welcomeUser">Welcome Mehrin Firdousi\n(6687325)</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="studentName">Mehrin Firdousi</string>
+    <string name="studentId">6687325</string>
+    <string name="courseLevel">Undergraduate</string>
+    <string name="courseName">Bachelor of Computer Science</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="studentSysLabel">Student Systems</string>
     <string name="generalInfoLabel">General Information</string>
     <string name="studentServicesLabel">Student Services</string>
-    <string name="othersLabel">others</string>
+    <string name="othersLabel">Others</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

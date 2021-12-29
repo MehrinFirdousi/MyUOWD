@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/navyuow_100"
-    >
+    android:layout_height="@dimen/toolbarHeight"
+    android:background="@color/navyuow_100">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="54.5dp"
         android:id="@+id/toolbarIcons"
         android:padding="12dp">
 
         <ImageView
-            android:id="@+id/userProfileBack"
+            android:id="@+id/fragBackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -28,7 +27,7 @@
             android:textSize="18sp" />
 
         <ImageView
-            android:id="@+id/userProfileNav"
+            android:id="@+id/fragNavButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -39,8 +38,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white"
+        android:layout_height="0.5dp"
+        android:background="@color/lightgray"
         android:layout_below="@id/toolbarIcons"
         />
 

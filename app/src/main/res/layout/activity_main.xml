@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navdrawer_layout"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:clickable="true">
+    <!--tools:openDrawer="start">-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,9 +15,19 @@
         tools:context=".MainActivity"
         android:orientation="vertical">
 
-        <include
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbarHeight"
             android:id="@+id/toolbarMain"
-            layout="@layout/toolbar1"/>
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:contentInsetRight="0dp"
+            android:contentInsetEnd="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp">
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
@@ -50,6 +61,12 @@
         </com.google.android.material.tabs.TabLayout>
     </LinearLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragmentContainer"
+        android:layout_marginTop="@dimen/toolbarHeight"/>
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -67,11 +84,6 @@
         app:itemShapeInsetStart="2dp"
         app:itemShapeInsetEnd="2dp"
         app:itemShapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Nav.Square"/>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/userProfileContainer"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

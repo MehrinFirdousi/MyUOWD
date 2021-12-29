@@ -4,4 +4,6 @@
     <dimen name="buttonHeight">98dp</dimen>
     <dimen name="buttonIconSize">60dp</dimen>
     <dimen name="buttonIconPadding">15dp</dimen>
+    <dimen name="toolbarHeight">55dp</dimen>
+    <dimen name="fragTitleSize">16sp</dimen>
 </resources>

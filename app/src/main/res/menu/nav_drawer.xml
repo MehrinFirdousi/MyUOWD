@@ -30,7 +30,7 @@
             android:title="Staff Directory" />
         <item
             android:id="@+id/nav_eventcalendar"
-            android:icon="@drawable/ic_eventscalendar_old"
+            android:icon="@drawable/ic_eventscalendar"
             android:title="Events Calendar" />
         <item
             android:id="@+id/nav_subjectsoffered"
