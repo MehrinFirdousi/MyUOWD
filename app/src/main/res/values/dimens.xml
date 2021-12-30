@@ -6,4 +6,10 @@
     <dimen name="buttonIconPadding">15dp</dimen>
     <dimen name="toolbarHeight">55dp</dimen>
     <dimen name="fragTitleSize">16sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="fragment_horizontal_margin">16dp</dimen>
+    <dimen name="fragment_vertical_margin">16dp</dimen>
 </resources>

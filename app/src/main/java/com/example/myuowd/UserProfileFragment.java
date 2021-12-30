@@ -11,9 +11,6 @@ import android.widget.ImageView;
 
 public class UserProfileFragment extends Fragment {
 
-    private ImageView backButton;
-    private ImageView navButton;
-
     public UserProfileFragment() {
         // Required empty public constructor
     }

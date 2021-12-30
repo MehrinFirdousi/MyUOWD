@@ -11,34 +11,30 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity_prelogin extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawer;
     TabLayout tabLayout;
     ViewPager2 viewPager;
     ImageView mainNavButton, userButton, backButton, fragNavButton;
     NavigationView navigationView;
-    MaterialButton logoutButton;
+    MaterialButton loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_prelogin);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
@@ -64,12 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     // user profile button
                     userButton = findViewById(R.id.userAccountButton);
-                    userButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            openFragment(UserProfileFragment.newInstance(), "User Profile");
-                        }
-                    });
+                    userButton.setVisibility(View.GONE);
                 }
                 // set listeners for secondary toolbar options when any fragment is open
                 else {
@@ -108,21 +99,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         viewPager.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager,
-            new TabLayoutMediator.TabConfigurationStrategy() {
-                @Override
-                public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                    if (position == 0)
-                    {
-                        tab.setIcon(R.drawable.ic_home_24);
-                        tab.setText("Home");
+                new TabLayoutMediator.TabConfigurationStrategy() {
+                    @Override
+                    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                        if (position == 0)
+                        {
+                            tab.setIcon(R.drawable.ic_home_24);
+                            tab.setText("Home");
+                        }
+                        else
+                        {
+                            tab.setIcon(R.drawable.ic_news);
+                            tab.setText("News Feed");
+                        }
                     }
-                    else
-                    {
-                        tab.setIcon(R.drawable.ic_news);
-                        tab.setText("News Feed");
-                    }
-                }
-            }).attach();
+                }).attach();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -143,11 +134,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerOpened(@NonNull View drawerView) {
-                logoutButton = findViewById(R.id.logoutButton);
-                logoutButton.setOnClickListener(new View.OnClickListener() {
+                loginButton = findViewById(R.id.logoutButton);
+                loginButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        logout();
+                        openFragment(LoginFragment.newInstance(), "Log in");
+                        drawer.closeDrawer(GravityCompat.START);
                     }
                 });
             }
@@ -158,7 +150,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onDrawerStateChanged(int newState) {}
         });
-    } // end of onCreate
+
+    }
 
     @Override
     public void onBackPressed()
@@ -205,8 +198,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_feedback:
                 openFragment(TimetablesFragment.newInstance(), itemTag);
                 break;
-            case R.id.logoutButton:
-                Toast.makeText(MainActivity.this, "log out button clicked", Toast.LENGTH_SHORT).show();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -229,11 +220,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // changing toolbar layout to contain back button instead
         getSupportActionBar().setCustomView(R.layout.toolbar2);
     }
-
-    public void logout() {
-        Intent intent = new Intent(this, MainActivity_prelogin.class);
-        startActivity(intent);
-        finish();
-    }
 }
-//if (getSupportFragmentManager().getBackStackEntryCount() == 0) {

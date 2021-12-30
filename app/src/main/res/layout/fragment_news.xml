@@ -11,46 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="25dp"
-        android:text="@string/studentSysLabel"
-        android:textAllCaps="true" />
+        android:text="News Feed"
+        android:textAllCaps="true"
+        android:layout_margin="16dp"/>
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/row1">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/solsButton"
-            android:layout_width="@dimen/buttonWidth"
-            android:layout_height="@dimen/buttonHeight"
-            android:layout_marginVertical="15dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/white"
-            android:paddingStart="22dp"
-            app:cornerRadius="18dp"
-            app:icon="@drawable/ic_logout"
-            app:iconSize="50dp"
-            app:iconTint="@color/red2" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/emailButton"
-            android:layout_width="@dimen/buttonWidth"
-            android:layout_height="@dimen/buttonHeight"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/white"
-            app:cornerRadius="18dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/moodleButton"
-            android:layout_width="@dimen/buttonWidth"
-            android:layout_height="@dimen/buttonHeight"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/white"
-            app:cornerRadius="18dp" />
-    </LinearLayout>
 </RelativeLayout>

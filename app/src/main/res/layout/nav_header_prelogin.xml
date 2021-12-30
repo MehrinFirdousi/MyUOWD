@@ -13,7 +13,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="sans-serif"
-        android:text="@string/welcomeUser"
+        android:text="@string/welcome_guest"
         android:textAlignment="center"
         android:textColor="@color/white"/>
 
@@ -27,7 +27,7 @@
         android:insetBottom="0dp"
         android:minHeight="45dp"
         android:paddingVertical="0dp"
-        android:text="Logout"
+        android:text="Login"
         android:textAllCaps="false"
         android:letterSpacing="0"
         app:cornerRadius="0dp"
@@ -39,7 +39,7 @@
         android:id="@+id/changePassButton"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="Change Password"
+        android:text="Forgot Password"
         android:textAllCaps="false"
         android:fontFamily="sans-serif"
         app:cornerRadius="0dp"
@@ -51,17 +51,26 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="@color/white"/>
-    <!--<TextView
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/activateAccountButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:text="Activate Account"
+        android:textAllCaps="false"
         android:fontFamily="sans-serif"
-        android:text="Change Password"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textAlignment="center"
-        android:paddingVertical="11dp"
-        android:background="@color/lightgray"
-        />-->
+        app:cornerRadius="0dp"
+        android:insetBottom="0dp"
+        android:insetTop="0dp"
+        android:paddingVertical="0dp"
+        android:minHeight="45dp"
+        android:letterSpacing="0"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white"/>
 
 </LinearLayout>
