@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TabLayout tabLayout;
     ViewPager2 viewPager;
     ImageView mainNavButton, userButton, backButton, fragNavButton;
-    FrameLayout userProfileContainer;
     NavigationView navigationView;
 
     @Override
@@ -47,10 +46,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                 drawer = findViewById(R.id.navdrawer_layout);
 
-                // when no fragments are open
-                if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-                    // main navigation drawer
-                    mainNavButton = findViewById(R.id.mainNavButton);
+                // set listeners for main toolbar options
+                if ((mainNavButton = findViewById(R.id.mainNavButton)) != null) {
+
+                    // main navigation drawer button
                     mainNavButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -58,19 +57,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         }
                     });
 
-                    // user profile
+                    // user profile button
                     userButton = findViewById(R.id.userAccountButton);
-                    userProfileContainer = (FrameLayout) findViewById(R.id.fragmentContainer);
-
                     userButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            openFragment(UserProfileFragment.newInstance());
+                            openFragment(UserProfileFragment.newInstance(), "User Profile");
                         }
                     });
                 }
-                // any fragment is open
+                // set listeners for secondary toolbar options when any fragment is open
                 else {
+
+                    // back button for open fragments
                     backButton = findViewById(R.id.fragBackButton);
                     backButton.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -78,11 +77,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             onBackPressed();
                         }
                     });
+
+                    // navigation drawer button for open fragments
                     fragNavButton = findViewById(R.id.fragNavButton);
                     fragNavButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            drawer.openDrawer(Gravity.LEFT);
+                            drawer.openDrawer(GravityCompat.START);
                         }
                     });
                 }
@@ -139,11 +140,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         if (drawer.isDrawerOpen(GravityCompat.START))
             drawer.closeDrawer(GravityCompat.START);
-        else if (getSupportFragmentManager().getBackStackEntryCount() == 1) // reached main activity layout
-        {
+        else if (getSupportFragmentManager().getBackStackEntryCount() == 1) { // reached main activity layout
             // changing the toolbar back to original layout without back button
-            getSupportActionBar().setCustomView(R.layout.toolbar1);
             super.onBackPressed();
+            getSupportActionBar().setCustomView(R.layout.toolbar1);
         }
         else
             super.onBackPressed();
@@ -151,56 +151,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        String itemTag = (String)item.getTitle();
         switch (item.getItemId()) {
             case R.id.nav_timetable:
-                openFragment(TimetablesFragment.newInstance());
+                openFragment(TimetablesFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_academic_cal:
-                openFragment(TimetablesFragment.newInstance());
+                openFragment(TimetablesFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_forms:
-                openFragment(FormsFragment.newInstance());
+                openFragment(FormsFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_policies:
-                openFragment(PoliciesFragment.newInstance());
+                openFragment(PoliciesFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_degreeplanner:
-                openFragment(DegreePlannersFragment.newInstance());
+                openFragment(DegreePlannersFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_staffdirectory:
-                openFragment(StaffDirectoryFragment.newInstance());
+                openFragment(StaffDirectoryFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_eventcalendar:
-                openFragment(TimetablesFragment.newInstance());
+                openFragment(TimetablesFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_subjectsoffered:
-                openFragment(TimetablesFragment.newInstance());
+                openFragment(TimetablesFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_feedback:
-                openFragment(TimetablesFragment.newInstance());
+                openFragment(TimetablesFragment.newInstance(), itemTag);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void openFragment(Fragment fragment) {
+    public void openFragment(Fragment fragment, String fragmentTag) {
         FragmentManager fragmentManager = getSupportFragmentManager();
+        int currentFragmentIndex = fragmentManager.getBackStackEntryCount() - 1;
+        if (currentFragmentIndex >= 0) { // at least one fragment is visible
+            String currentFragmentTag = fragmentManager.getBackStackEntryAt(currentFragmentIndex).getName();
+            if (fragmentTag.equals(currentFragmentTag))
+                return;
+        }
+        Fragment f = fragmentManager.findFragmentByTag(fragmentTag);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_right); // adding animations using userTransaction object
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.add(R.id.fragmentContainer, fragment).commit();
+        fragmentTransaction.addToBackStack(fragmentTag);
+        fragmentTransaction.add(R.id.fragmentContainer, fragment, fragmentTag).commit();
 
         // changing toolbar layout to contain back button instead
         getSupportActionBar().setCustomView(R.layout.toolbar2);
     }
 }
-
-                /*if(tabLayout.getSelectedTabPosition() == 0)
-                {
-                    Toast.makeText(MainActivity.this, "Tab " + tabLayout.getSelectedTabPosition(), Toast.LENGTH_LONG).show();
-                }
-                else if(tabLayout.getSelectedTabPosition() == 1)
-                {
-                    Toast.makeText(MainActivity.this, "Tab " + tabLayout.getSelectedTabPosition(), Toast.LENGTH_LONG).show();
-                }*/
+//if (getSupportFragmentManager().getBackStackEntryCount() == 0) {

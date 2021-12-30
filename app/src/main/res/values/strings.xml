@@ -99,8 +99,36 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <!--
-    <string name="studentName">Mehrin Firdousi</string>
-    <string name="studentId">6687325</string>
-    -->
+    <string name="solsTag">Sols</string>
+    <string name="emailTag">E-mail</string>
+    <string name="moodleTag">Moodle</string>
+    <string name="busRoutesTag">Bus Routes</string>
+    <string name="staffDirectoryTag">Staff Directory</string>
+    <string name="academicCalendarTag">Academic Calendar</string>
+    <string name="formsTag">Forms</string>
+    <string name="degreePlannersTag">Degree Planners</string>
+    <string name="myTimetableTag">My Timetable</string>
+    <string name="policiesTag">Policies</string>
+    <string name="campusMapTag">Campus Map</string>
+    <string name="timetablesTag">Timetables</string>
+    <string name="libraryTag">Library</string>
+    <string name="graduationTag">Graduation</string>
+    <string name="scholarshipTag">Scholarship</string>
+    <string name="careerDevelopmentCenterTag">Career Development Center</string>
+    <string name="transportationTag">Transportation</string>
+    <string name="careersPortalTag">Careers Portal</string>
+    <string name="registrarsTag">Registrars</string>
+    <string name="srcTag">SRC</string>
+    <string name="uowdxTag">UOWDx</string>
+    <string name="residencesTag">Residences</string>
+    <string name="studentLifeTag">Student Life</string>
+    <string name="studentVisaTag">Student Visa</string>
+    <string name="financeTag">Finance</string>
+    <string name="socialMediaTag">Social Media</string>
+    <string name="eventsCalendarTag">Events Calendar</string>
+    <string name="onlineFormsTag">Online Forms</string>
+    <string name="studiosityTag">Studiosity</string>
+    <string name="onlineBookStoreTag">Online Book Store</string>
+    <string name="subjectsOfferedTag">Subjects Offered</string>
+    <string name="feedbackTag">Feedback</string>
 </resources>

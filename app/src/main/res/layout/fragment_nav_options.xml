@@ -17,16 +17,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:queryHint="Search"
-            android:background="@color/bgcolor"/>
+            android:background="@color/white"/>
     </LinearLayout>
 
     <TextView
         android:id="@+id/fragmentTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="test"
+        android:layout_margin="15dp"
         android:textAllCaps="true"
         android:textColor="@color/darkgray"
         android:textSize="@dimen/fragTitleSize"/>
+
+    <ListView
+        android:id="@+id/navOptionList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"/>
+
 </LinearLayout>

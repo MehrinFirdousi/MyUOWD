@@ -7,38 +7,38 @@
         <item
             android:id="@+id/nav_timetable"
             android:icon="@drawable/ic_timetables"
-            android:title="Timetables" />
+            android:title="@string/timetablesTag" />
         <item
             android:id="@+id/nav_academic_cal"
             android:icon="@drawable/ic_academiccalendar"
-            android:title="Academic Calendar" />
+            android:title="@string/academicCalendarTag" />
         <item
             android:id="@+id/nav_forms"
             android:icon="@drawable/ic_forms"
-            android:title="Forms" />
+            android:title="@string/formsTag" />
         <item
             android:id="@+id/nav_policies"
             android:icon="@drawable/ic_policies"
-            android:title="Policies" />
+            android:title="@string/policiesTag" />
         <item
             android:id="@+id/nav_degreeplanner"
             android:icon="@drawable/ic_degreeplanners"
-            android:title="Degree Planners" />
+            android:title="@string/degreePlannersTag" />
         <item
             android:id="@+id/nav_staffdirectory"
             android:icon="@drawable/ic_staffdirectory"
-            android:title="Staff Directory" />
+            android:title="@string/staffDirectoryTag" />
         <item
             android:id="@+id/nav_eventcalendar"
             android:icon="@drawable/ic_eventscalendar"
-            android:title="Events Calendar" />
+            android:title="@string/eventsCalendarTag" />
         <item
             android:id="@+id/nav_subjectsoffered"
             android:icon="@drawable/ic_subjectsoffered"
-            android:title="Subjects Offered" />
+            android:title="@string/subjectsOfferedTag" />
         <item
             android:id="@+id/nav_feedback"
             android:icon="@drawable/ic_feedback"
-            android:title="Feedback" />
+            android:title="@string/feedbackTag" />
     </group>
 </menu>

@@ -37,7 +37,7 @@ public class StaffDirectoryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         title = getView().findViewById(R.id.fragmentTitle);
-        title.setText("Staff Directory");
+        title.setText(R.string.staffDirectoryTag);
         super.onViewCreated(view, savedInstanceState);
     }
 }
