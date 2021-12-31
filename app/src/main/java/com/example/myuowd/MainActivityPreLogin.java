@@ -21,7 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class MainActivity_prelogin extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivityPreLogin extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawer;
     TabLayout tabLayout;
@@ -95,25 +95,25 @@ public class MainActivity_prelogin extends AppCompatActivity implements Navigati
         viewPager = findViewById(R.id.viewPager);
         int count = tabLayout.getTabCount();
 
-        final PageAdapter adapter = new PageAdapter(this, count);
+        final PageAdapter adapter = new PageAdapter(this, count, false);
         viewPager.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager,
-                new TabLayoutMediator.TabConfigurationStrategy() {
-                    @Override
-                    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                        if (position == 0)
-                        {
-                            tab.setIcon(R.drawable.ic_home_24);
-                            tab.setText("Home");
-                        }
-                        else
-                        {
-                            tab.setIcon(R.drawable.ic_news);
-                            tab.setText("News Feed");
-                        }
+            new TabLayoutMediator.TabConfigurationStrategy() {
+                @Override
+                public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                    if (position == 0)
+                    {
+                        tab.setIcon(R.drawable.ic_home_24);
+                        tab.setText("Home");
                     }
-                }).attach();
+                    else
+                    {
+                        tab.setIcon(R.drawable.ic_news);
+                        tab.setText("News Feed");
+                    }
+                }
+            }).attach();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

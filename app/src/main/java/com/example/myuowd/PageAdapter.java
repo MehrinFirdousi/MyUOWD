@@ -8,11 +8,13 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 public class PageAdapter extends FragmentStateAdapter {
 
     int totalTabs;
+    boolean isLoggedIn;
 
-    public PageAdapter(FragmentActivity fm, int totalTabs)
+    public PageAdapter(FragmentActivity fm, int totalTabs, boolean isLoggedIn)
     {
         super(fm);
         this.totalTabs = totalTabs;
+        this.isLoggedIn = isLoggedIn;
     }
 
     @NonNull
@@ -21,12 +23,12 @@ public class PageAdapter extends FragmentStateAdapter {
         switch(position)
         {
             case 0:
-                HomeFragment homeFragment = new HomeFragment();
-                return homeFragment;
+                if (isLoggedIn)
+                    return HomeFragment.newInstance();
+                else
+                    return HomeFragmentPreLogin.newInstance();
             case 1:
-                NewsFragment newsFragment = new NewsFragment();
-                //ScrollingFragment newsFragment = new ScrollingFragment();
-                return newsFragment;
+                return NewsFragment.newInstance();
             default:
                 return null;
         }

@@ -42,7 +42,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         String tag = (String) v.getTag();
-        //Toast.makeText(getContext(), tag, Toast.LENGTH_SHORT).show();
         switch (v.getId()) {
             case R.id.academicCalendarButton:
                 ((MainActivity)getActivity()).openFragment(TimetablesFragment.newInstance(), tag);

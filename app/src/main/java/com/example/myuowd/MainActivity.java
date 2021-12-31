@@ -13,12 +13,9 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationView;
@@ -47,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer = findViewById(R.id.navdrawer_layout);
 
+        /*  Toolbar layout changes when switching between fragments and the main activity.
+         *  This listener is to reset the listeners for the toolbar options when it gets recreated.
+         */
         toolbar.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
@@ -95,16 +95,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        // navigation view options
+        // setting navigation view options listeners
         navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(this); // uses onNavigationItemSelected(MenuItem) overridden function
 
-        // bottom tab navigation
+        // enabling bottom tab navigation
         tabLayout = findViewById(R.id.bottom_nav_bar);
         viewPager = findViewById(R.id.viewPager);
         int count = tabLayout.getTabCount();
 
-        final PageAdapter adapter = new PageAdapter(this, count);
+        final PageAdapter adapter = new PageAdapter(this, count, true);
         viewPager.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager,
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        // logout
+        // handling logout
         drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerOpened(@NonNull View drawerView) {
@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         if (drawer.isDrawerOpen(GravityCompat.START))
             drawer.closeDrawer(GravityCompat.START);
-        else if (getSupportFragmentManager().getBackStackEntryCount() == 1) { // reached main activity layout
+        else if (getSupportFragmentManager().getBackStackEntryCount() == 1) { // backstack reached base (main activity)
             // changing the toolbar back to original layout without back button
             super.onBackPressed();
             getSupportActionBar().setCustomView(R.layout.toolbar1);
@@ -205,8 +205,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_feedback:
                 openFragment(TimetablesFragment.newInstance(), itemTag);
                 break;
-            case R.id.logoutButton:
-                Toast.makeText(MainActivity.this, "log out button clicked", Toast.LENGTH_SHORT).show();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -226,14 +224,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.addToBackStack(fragmentTag);
         fragmentTransaction.add(R.id.fragmentContainer, fragment, fragmentTag).commit();
 
-        // changing toolbar layout to contain back button instead
+        // changing toolbar layout to contain back button and navigation drawer button
         getSupportActionBar().setCustomView(R.layout.toolbar2);
     }
 
     public void logout() {
-        Intent intent = new Intent(this, MainActivity_prelogin.class);
+        Intent intent = new Intent(this, MainActivityPreLogin.class);
         startActivity(intent);
         finish();
     }
 }
-//if (getSupportFragmentManager().getBackStackEntryCount() == 0) {

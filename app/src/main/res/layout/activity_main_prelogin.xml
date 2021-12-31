@@ -8,7 +8,7 @@
     android:id="@+id/navdrawer_layout"
     android:fitsSystemWindows="true"
     android:clickable="true"
-    tools:context=".MainActivity_prelogin"
+    tools:context=".MainActivityPreLogin"
     tools:openDrawer="start">
 
     <LinearLayout

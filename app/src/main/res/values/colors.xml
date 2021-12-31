@@ -9,5 +9,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bgcolor">#EFEEF3</color>
+    <color name="linkblue">#216ccf</color>
+    <color name="linegray">#ebebeb</color>
 </resources>
 
