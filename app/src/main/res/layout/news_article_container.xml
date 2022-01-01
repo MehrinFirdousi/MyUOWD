@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="32dp"
-    android:layout_marginVertical="40dp"
+    android:layout_marginTop="40dp"
     android:paddingHorizontal="16dp"
     android:paddingBottom="16dp"
     android:background="@drawable/news_article_bg">
@@ -14,7 +14,6 @@
         android:id="@+id/newsTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TEDxUOWD long sentence 123 jdkfj inspired innovation and creative thinking"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginVertical="8dp"/>
@@ -23,7 +22,6 @@
         android:id="@+id/newsImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/campus"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:layout_marginVertical="8dp"/>
@@ -38,7 +36,6 @@
         android:id="@+id/newsPreview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TEDxUOWD long innovation and creative thinking TEDxUOWD long sentence 123 jdkfj inspired innovation and creative thinking TEDxUOWD long sentence 123 jdkfj i "
         android:textSize="14sp"
         android:layout_marginVertical="8dp"/>
 
@@ -59,7 +56,6 @@
     <TextView
         android:id="@+id/newsAge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="2 years(s) ago"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

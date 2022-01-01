@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 openFragment(TimetablesFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_academic_cal:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
+                openFragment(WebPageFragment.newInstance(getString(R.string.academic_calendar_url)), itemTag);
                 break;
             case R.id.nav_forms:
                 openFragment(FormsFragment.newInstance(), itemTag);
@@ -197,13 +197,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 openFragment(StaffDirectoryFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_eventcalendar:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
+                //openFragment(WebPageFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_subjectsoffered:
                 openFragment(TimetablesFragment.newInstance(), itemTag);
                 break;
             case R.id.nav_feedback:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
+                //openFragment(WebPageFragment.newInstance(), itemTag);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);

@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         String tag = (String) v.getTag();
         switch (v.getId()) {
             case R.id.academicCalendarButton:
-                ((MainActivity)getActivity()).openFragment(TimetablesFragment.newInstance(), tag);
+                ((MainActivity)getActivity()).openFragment(WebPageFragment.newInstance(getString(R.string.academic_calendar_url)), tag);
                 break;
             case R.id.staffDirectoryButton:
                 ((MainActivity)getActivity()).openFragment(StaffDirectoryFragment.newInstance(), tag);
