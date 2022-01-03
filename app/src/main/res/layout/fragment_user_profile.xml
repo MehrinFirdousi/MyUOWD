@@ -11,10 +11,6 @@
     android:layout_marginTop="@dimen/toolbarHeight"
     android:clickable="true">
 
-    <!--<include
-        android:id="@+id/toolbar_userProfile"
-        layout="@layout/toolbar2"/>-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,33 +27,33 @@
             android:layout_marginVertical="15dp"/>
 
         <TextView
+            android:id="@+id/studentName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/studentName"
             android:textSize="20sp"
             android:layout_marginBottom="5dp"
             style="@style/UserProfileTextStyle"/>
 
         <TextView
+            android:id="@+id/studentId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/studentId"
             android:textSize="15sp"
             android:layout_marginBottom="5dp"
             style="@style/UserProfileTextStyle"/>
 
         <TextView
+            android:id="@+id/courseLevel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/courseLevel"
             android:textSize="15sp"
             android:layout_marginBottom="5dp"
             style="@style/UserProfileTextStyle"/>
 
         <TextView
+            android:id="@+id/courseName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/courseName"
             android:textSize="15sp"
             android:layout_marginBottom="5dp"
             style="@style/UserProfileTextStyle"/>
@@ -65,10 +61,10 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/studentBarcode"
         android:layout_width="175dp"
         android:layout_height="100dp"
-        android:background="@drawable/barcode"
         android:layout_gravity="center"
-        android:backgroundTint="@color/navyuow_100"
-        android:layout_marginVertical="10dp"/>
+        android:layout_marginVertical="10dp"
+        app:tint="@color/navyuow_100" />
 </LinearLayout>

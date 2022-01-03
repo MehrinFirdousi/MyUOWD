@@ -2,6 +2,7 @@ package com.example.myuowd;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -11,7 +12,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,7 +33,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ViewPager2 viewPager;
     ImageView mainNavButton, userButton, backButton, fragNavButton;
     NavigationView navigationView;
-    MaterialButton logoutButton;
+    MaterialButton logoutButton, resetPasswordButton;
+    AlertDialog.Builder alertBuilder;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,9 +49,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setCustomView(R.layout.toolbar1);
 
         drawer = findViewById(R.id.navdrawer_layout);
+        alertBuilder = new AlertDialog.Builder(this);
 
         /*  Toolbar layout changes when switching between fragments and the main activity.
-         *  This listener is to reset the listeners for the toolbar options when it gets recreated.
+         *  So this listener is to reset the listeners for the toolbar options whenever the toolbar gets recreated.
          */
         toolbar.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -147,7 +154,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 logoutButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        logout();
+                        alertBuilder
+                                .setMessage(R.string.logout_dialog_message)
+                                .setTitle(R.string.logout_dialog_title)
+                                .setCancelable(false)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        logout();
+                                    }
+                                })
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert = alertBuilder.create();
+                        alert.show();
+                    }
+                });
+                resetPasswordButton = findViewById(R.id.resetPassButton);
+                resetPasswordButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        openFragment(WebPageFragment.newInstance(getString(R.string.reset_password_url)), "Reset Password");
+                        drawer.closeDrawer(GravityCompat.START);
                     }
                 });
             }
@@ -179,31 +211,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String itemTag = (String)item.getTitle();
         switch (item.getItemId()) {
             case R.id.nav_timetable:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
+                openFragment(SearchListFragment.newInstance("Timetables", "File", ""), itemTag);
                 break;
             case R.id.nav_academic_cal:
                 openFragment(WebPageFragment.newInstance(getString(R.string.academic_calendar_url)), itemTag);
                 break;
             case R.id.nav_forms:
-                openFragment(FormsFragment.newInstance(), itemTag);
+                openFragment(SearchListFragment.newInstance("Forms", "Form", "Department"), itemTag);
                 break;
             case R.id.nav_policies:
-                openFragment(PoliciesFragment.newInstance(), itemTag);
+                openFragment(SearchListFragment.newInstance("Policies", "Policy", "Department"), itemTag);
                 break;
             case R.id.nav_degreeplanner:
-                openFragment(DegreePlannersFragment.newInstance(), itemTag);
+                openFragment(SearchListFragment.newInstance("Degree Planners", "Session", "Faculty"), itemTag);
                 break;
             case R.id.nav_staffdirectory:
-                openFragment(StaffDirectoryFragment.newInstance(), itemTag);
-                break;
-            case R.id.nav_eventcalendar:
-                //openFragment(WebPageFragment.newInstance(), itemTag);
+                openFragment(new SearchListFragment("Staff Directory"), itemTag);
                 break;
             case R.id.nav_subjectsoffered:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
+                openFragment(SearchListFragment.newInstance("Timetables", "File", ""), itemTag);
                 break;
             case R.id.nav_feedback:
-                //openFragment(WebPageFragment.newInstance(), itemTag);
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.feedback_url))); // to open the URL in a browser
+                startActivity(viewIntent);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
@@ -229,6 +259,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void logout() {
+        sp = getSharedPreferences("login", MODE_PRIVATE);
+        sp.edit().putBoolean("logged", false).apply();
         Intent intent = new Intent(this, MainActivityPreLogin.class);
         startActivity(intent);
         finish();

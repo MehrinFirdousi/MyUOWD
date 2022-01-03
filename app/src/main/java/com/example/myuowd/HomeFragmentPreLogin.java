@@ -26,10 +26,9 @@ public class HomeFragmentPreLogin extends Fragment implements View.OnClickListen
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_prelogin, container, false);
-        for (int i = 0; i < 8; i++)
-            view.findViewById(buttonIds[i]).setOnClickListener(this::onClick);
+        for (int id : buttonIds)
+            view.findViewById(id).setOnClickListener(this::onClick);
         return view;
     }
 
@@ -38,30 +37,23 @@ public class HomeFragmentPreLogin extends Fragment implements View.OnClickListen
         String tag = (String) v.getTag();
         switch (v.getId()) {
             case R.id.libraryButton:
-                ((MainActivityPreLogin)getActivity()).openFragment(TimetablesFragment.newInstance(), tag);
+                ((MainActivityPreLogin)getActivity()).openFragment(LibraryFragment.newInstance(), tag);
                 break;
             case R.id.scholarshipButton:
-                ((MainActivityPreLogin)getActivity()).openFragment(StaffDirectoryFragment.newInstance(), tag);
+                ((MainActivityPreLogin)getActivity()).openFragment(WebPageFragment.newInstance(getString(R.string.scholarship_url_public)), tag);
                 break;
             case R.id.transportationButton:
-                ((MainActivityPreLogin)getActivity()).openFragment(FormsFragment.newInstance(), tag);
+                ((MainActivityPreLogin)getActivity()).openFragment(WebPageFragment.newInstance(getString(R.string.transportation_url_public)), tag);
                 break;
             case R.id.srcButton:
-                ((MainActivityPreLogin)getActivity()).openFragment(PoliciesFragment.newInstance(), tag);
+                ((MainActivityPreLogin)getActivity()).openFragment(WebPageFragment.newInstance(getString(R.string.src_url)), tag);
                 break;
             case R.id.residencesButton:
-                ((MainActivityPreLogin)getActivity()).openFragment(DegreePlannersFragment.newInstance(), tag);
-                break;
-            case R.id.socialMediaButton:
-                ((MainActivityPreLogin)getActivity()).openFragment(TimetablesFragment.newInstance(), tag);
-                break;
-            case R.id.eventsCalendarButton:
-                ((MainActivityPreLogin)getActivity()).openFragment(TimetablesFragment.newInstance(), tag);
+                ((MainActivityPreLogin)getActivity()).openFragment(WebPageFragment.newInstance(getString(R.string.residences_url)), tag);
                 break;
             case R.id.onlineFormsButton:
-                ((MainActivityPreLogin)getActivity()).openFragment(TimetablesFragment.newInstance(), tag);
+                ((MainActivityPreLogin)getActivity()).openFragment(SearchListFragment.newInstance("Online Forms", "Form", ""), tag);
                 break;
-
         }
     }
 }

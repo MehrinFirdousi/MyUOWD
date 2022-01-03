@@ -36,7 +36,7 @@
         app:iconPadding="4dp"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/changePassButton"
+        android:id="@+id/resetPassButton"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:text="Change Password"
@@ -53,15 +53,4 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/white"/>
-    <!--<TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:text="Change Password"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textAlignment="center"
-        android:paddingVertical="11dp"
-        android:background="@color/lightgray"
-        />-->
-
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.myuowd;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,16 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
-public class WebPageFragment extends Fragment {
+
+public class WebPageFragment extends Fragment implements View.OnClickListener{
 
     String url;
+    WebView webView;
+    ProgressBar spinner;
+    boolean webViewInitialUse;
+    int[] buttonIds = { R.id.backButton, R.id.backText, R.id.webBackButton, R.id.webForwardButton };
 
     public WebPageFragment(String url) {
         this.url = url;
+        webViewInitialUse = true;
     }
 
     public static WebPageFragment newInstance(String url) {
@@ -34,43 +39,48 @@ public class WebPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_web_page, container, false);
-        WebView webView = view.findViewById(R.id.webView);
+        webView = view.findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient());
+        spinner = (ProgressBar)view.findViewById(R.id.progressSpinner);
+        webView.setWebViewClient(new CustomWebViewClient());
         webView.loadUrl(url);
 
-        ImageView backButton = view.findViewById(R.id.backButton);
-        TextView backText = view.findViewById(R.id.backText);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "back clicked", Toast.LENGTH_SHORT).show();
+        for (int id : buttonIds)
+            view.findViewById(id).setOnClickListener(this::onClick);
+        return view;
+    }
 
-                switch(v.getId()) {
-                    case R.id.backButton:
-                    case R.id.backText:
-                        getActivity().onBackPressed();
-                }
-            }
-        });
+    // This class allows for a loading progress spinner and hide the progress spinner once the webpage loads
+    private class CustomWebViewClient extends WebViewClient {
 
-        ImageView webBackButton = view.findViewById(R.id.webBackButton);
-        ImageView webForwardButton = view.findViewById(R.id.webForwardButton);
+        @Override
+        public void onPageStarted(WebView webview, String url, Bitmap favicon) {
+            if (webViewInitialUse)
+                webview.setVisibility(webview.INVISIBLE); // making the webview invisible so that only the progress spinner is visible until the page loads
+        }
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            webViewInitialUse = false;
+            spinner.setVisibility(View.GONE);
+            view.setVisibility(webView.VISIBLE);
+            super.onPageFinished(view, url);
+        }
+    }
 
-        webBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.backButton:
+            case R.id.backText:
+                getActivity().onBackPressed();
+            case R.id.webBackButton:
                 if (webView.canGoBack())
                     webView.goBack();
-            }
-        });
-        webForwardButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.webForwardButton:
                 if (webView.canGoForward())
                     webView.goForward();
-            }
-        });
-        return view;
+                break;
+        }
     }
 }

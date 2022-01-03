@@ -86,16 +86,3 @@
         app:itemShapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Nav.Square"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
-
-    <!-- same bottom navigation but with BottomNavigationView
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_navigation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:itemIconSize="30dp"
-        app:itemIconTint="@color/bottom_nav_color"
-        app:itemTextColor="@color/bottom_nav_color"
-        app:itemBackground="@drawable/bottom_nav_select"
-        />-->

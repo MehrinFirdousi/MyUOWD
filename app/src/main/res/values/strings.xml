@@ -1,104 +1,20 @@
 <resources>
     <string name="app_name">MyUOWD</string>
+
+    <!-- User data -->
     <string name="welcomeUser">Welcome Mehrin Firdousi\n(6687325)</string>
     <string name="studentName">Mehrin Firdousi</string>
     <string name="studentId">6687325</string>
     <string name="courseLevel">Undergraduate</string>
     <string name="courseName">Bachelor of Computer Science</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Main categories in home fragment -->
     <string name="studentSysLabel">Student Systems</string>
     <string name="generalInfoLabel">General Information</string>
     <string name="studentServicesLabel">Student Services</string>
     <string name="othersLabel">Others</string>
-    <string name="large_text">
-        "Material is the metaphor.\n\n"
 
-        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
-        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
-        "technologically advanced and open to imagination and magic.\n"
-        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
-        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
-        "flexibility of the material creates new affordances that supercede those in the physical "
-        "world, without breaking the rules of physics.\n"
-        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
-        "interact, and exist in space and in relation to each other. Realistic lighting shows "
-        "seams, divides space, and indicates moving parts.\n\n"
-
-        "Bold, graphic, intentional.\n\n"
-
-        "The foundational elements of print based design typography, grids, space, scale, color, "
-        "and use of imagery guide visual treatments. These elements do far more than please the "
-        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
-        "imagery, large scale typography, and intentional white space create a bold and graphic "
-        "interface that immerse the user in the experience.\n"
-        "An emphasis on user actions makes core functionality immediately apparent and provides "
-        "waypoints for the user.\n\n"
-
-        "Motion provides meaning.\n\n"
-
-        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
-        "inflection points that initiate motion, transforming the whole design.\n"
-        "All action takes place in a single environment. Objects are presented to the user without "
-        "breaking the continuity of experience even as they transform and reorganize.\n"
-        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
-        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
-
-        "3D world.\n\n"
-
-        "The material environment is a 3D space, which means all objects have x, y, and z "
-        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
-        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
-        "position along the z-axis and has a standard 1dp thickness.\n"
-        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
-        "emulated by manipulating the y-axis.\n\n"
-
-        "Light and shadow.\n\n"
-
-        "Within the material environment, virtual lights illuminate the scene. Key lights create "
-        "directional shadows, while ambient light creates soft shadows from all angles.\n"
-        "Shadows in the material environment are cast by these two light sources. In Android "
-        "development, shadows occur when light sources are blocked by sheets of material at "
-        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
-        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
-
-        "Resting elevation.\n\n"
-
-        "All material objects, regardless of size, have a resting elevation, or default elevation "
-        "that does not change. If an object changes elevation, it should return to its resting "
-        "elevation as soon as possible.\n\n"
-
-        "Component elevations.\n\n"
-
-        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
-        "does not vary from 6dp in one app to 16dp in another app).\n"
-        "Components may have different resting elevations across platforms, depending on the depth "
-        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
-
-        "Responsive elevation and dynamic elevation offsets.\n\n"
-
-        "Some component types have responsive elevation, meaning they change elevation in response "
-        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
-        "changes are consistently implemented using dynamic elevation offsets.\n"
-        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
-        "to the component’s resting state. They ensure that elevation changes are consistent "
-        "across actions and component types. For example, all components that lift on press have "
-        "the same elevation change relative to their resting elevation.\n"
-        "Once the input event is completed or cancelled, the component will return to its resting "
-        "elevation.\n\n"
-
-        "Avoiding elevation interference.\n\n"
-
-        "Components with responsive elevations may encounter other components as they move between "
-        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
-        "through other material, components avoid interfering with one another any number of ways, "
-        "whether on a per component basis or using the entire app layout.\n"
-        "On a component level, components can move or be removed before they cause interference. "
-        "For example, a floating action button (FAB) can disappear or move off screen before a "
-        "user picks up a card, or it can move if a snackbar appears.\n"
-        "On the layout level, design your app layout to minimize opportunities for interference. "
-        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
-        "when a user tries to pick up one of cards.\n\n"
-    </string>
+    <!-- Tags for buttons in home fragment -->
     <string name="solsTag">Sols</string>
     <string name="emailTag">E-mail</string>
     <string name="moodleTag">Moodle</string>
@@ -131,26 +47,54 @@
     <string name="onlineBookStoreTag">Online Book Store</string>
     <string name="subjectsOfferedTag">Subjects Offered</string>
     <string name="feedbackTag">Feedback</string>
+    <string name="info_tag">Info</string>
+    <string name="electronic_resources_tag">Electronic Resources</string>
+    <string name="our_resources_tag">Our Resources</string>
+    <string name="email_a_librarian_tag">Email A Librarian</string>
+    <string name="start_smart_tag">Start Smart</string>
 
     <string name="prompt_username">Your username</string>
     <string name="prompt_password">Your password</string>
 
     <string name="welcome_guest">Welcome Guest</string>
     <string name="action_sign_in">Sign in</string>
+    <string name="login_label">Login</string>
+    <string name="forgot_password_label">Forgot Password</string>
+    <string name="activate_account_label">Activate Account</string>
+
+    <!-- Dummy data for testing news article layout -->
     <string name="newsAge">2 year(s) ago</string>
     <string name="lorem_ipsum_short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</string>
     <string name="lorem_ipsum_medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-    <string name="lorem_ipsum_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ante metus dictum at tempor commodo ullamcorper a. Porttitor rhoncus dolor purus non. Tincidunt ornare massa eget egestas purus viverra accumsan in nisl. Sed viverra tellus in hac habitasse. Sodales ut etiam sit amet nisl. Tempus quam pellentesque nec nam aliquam sem et tortor. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Mauris a diam maecenas sed enim ut sem viverra. Amet luctus venenatis lectus magna fringilla. Libero id faucibus nisl tincidunt eget nullam. Eget aliquet nibh praesent tristique magna sit. Tristique senectus et netus et.
+    <string name="lorem_ipsum_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel elit feugiat, gravida est in, mattis sapien. Cras mattis felis lacus. Sed consectetur, risus non lobortis dictum, lectus neque luctus ante, vel imperdiet sem est eget justo. Aenean aliquam nibh metus, eget hendrerit metus hendrerit eget. Vestibulum nec ipsum libero. Integer convallis feugiat eros, eget dapibus mauris posuere non. Aliquam eleifend risus quis tortor vestibulum finibus. \n\nAenean porttitor ligula vitae nunc congue molestie. Suspendisse a mi placerat, dapibus nulla nec, suscipit odio. Nunc quis viverra enim. Aenean vehicula, elit in tincidunt pulvinar, erat ipsum vestibulum justo, vitae consequat risus turpis nec lorem. Maecenas id metus leo. Ut justo lacus, elementum eu dui id, fermentum iaculis purus. Suspendisse turpis ligula, tempor pharetra quam quis, posuere vestibulum arcu. Nulla facilisi. Maecenas ante nisl, viverra sit amet tempor cursus, luctus sit amet mauris. Integer vel pretium est, lobortis pretium purus. Vivamus eu viverra turpis. Integer eu tortor consectetur, dictum neque id, fringilla nisl. Aenean bibendum vel est at sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ullamcorper porta lacus eget suscipit. Pellentesque pharetra a justo sed volutpat. Mauris sit amet sodales justo, at porttitor orci. Praesent luctus felis consequat nibh imperdiet, a ullamcorper nisl ornare. Sed pretium sagittis dolor, non lobortis augue hendrerit id. \n\nCurabitur felis nisi, tristique eu malesuada tincidunt, ultricies quis mi. Etiam blandit imperdiet tempus. Curabitur eu tortor augue. Praesent nec cursus urna. Curabitur ornare ut velit nec consequat. Aliquam erat volutpat. Sed at varius odio, sed sodales risus. Maecenas consectetur ultricies augue, a porttitor nibh placerat a. Suspendisse nec magna lacus. Donec ut interdum lorem. Cras sit amet tellus ex. Suspendisse sed accumsan est. \n\nPhasellus a ligula sodales nibh ornare commodo. Nam ornare interdum massa ac facilisis. Vestibulum pulvinar velit viverra lacinia tincidunt. Integer imperdiet massa vel ipsum efficitur, sed rhoncus mi tincidunt. Proin fringilla orci felis, lobortis dictum mi consequat eu. Integer cursus ac eros at tincidunt. Mauris urna ex, aliquam rhoncus viverra id, varius at sem. Mauris sollicitudin, velit quis congue dignissim, sapien dolor blandit magna, sed aliquam libero enim ac nisi. Etiam magna elit, condimentum eu magna quis, pulvinar pharetra mauris. Nunc sit amet diam eu odio sodales viverra sed eu est.</string>
 
-Vitae elementum curabitur vitae nunc sed. Ac turpis egestas sed tempus urna et pharetra pharetra. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Quis vel eros donec ac odio. Nunc sed id semper risus in hendrerit. Mattis ullamcorper velit sed ullamcorper morbi. Tincidunt augue interdum velit euismod in pellentesque massa placerat duis. Scelerisque eu ultrices vitae auctor eu augue ut lectus. In nisl nisi scelerisque eu ultrices vitae auctor eu. Massa sapien faucibus et molestie ac feugiat.
-
-Tincidunt ornare massa eget egestas purus. Morbi tincidunt ornare massa eget egestas purus viverra. Risus quis varius quam quisque id. Scelerisque fermentum dui faucibus in ornare. Ut placerat orci nulla pellentesque dignissim enim sit. Diam volutpat commodo sed egestas egestas. Justo laoreet sit amet cursus sit amet dictum. Iaculis eu non diam phasellus vestibulum lorem. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. In vitae turpis massa sed elementum tempus egestas sed sed. Massa tempor nec feugiat nisl pretium fusce id velit. Neque egestas congue quisque egestas diam in arcu cursus. Sed augue lacus viverra vitae congue. Sit amet luctus venenatis lectus magna fringilla urna. Dolor purus non enim praesent elementum facilisis leo. Dui accumsan sit amet nulla.
-
-Porttitor rhoncus dolor purus non enim. Ac feugiat sed lectus vestibulum mattis ullamcorper. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Et tortor consequat id porta nibh venenatis. Vitae aliquet nec ullamcorper sit. Elit ut aliquam purus sit amet luctus venenatis lectus. Porta nibh venenatis cras sed felis eget velit aliquet. Tristique nulla aliquet enim tortor at auctor urna nunc id. Massa ultricies mi quis hendrerit dolor. Non blandit massa enim nec dui nunc mattis enim. Ac turpis egestas integer eget aliquet nibh.
-
-Orci nulla pellentesque dignissim enim sit amet venenatis. Ultricies tristique nulla aliquet enim tortor at auctor. Sit amet venenatis urna cursus eget nunc scelerisque viverra. Feugiat sed lectus vestibulum mattis ullamcorper velit. Tincidunt lobortis feugiat vivamus at. Rutrum quisque non tellus orci ac. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Volutpat odio facilisis mauris sit amet. Metus dictum at tempor commodo ullamcorper a lacus. Urna id volutpat lacus laoreet non curabitur gravida arcu ac. Mattis nunc sed blandit libero volutpat sed cras ornare arcu. Commodo odio aenean sed adipiscing diam. Adipiscing elit pellentesque habitant morbi tristique senectus et netus.</string>
+    <!-- Log out alert dialog messages -->
+    <string name="logout_dialog_message">Are you sure you want to log out?</string>
+    <string name="logout_dialog_title">Confirm log out</string>
 
     <!-- URLS -->
     <string name="academic_calendar_url">https://www.uowdubai.ac.ae/students/academic-calendar/bachelors-students</string>
+    <string name="reset_password_url">https://my.uowdubai.ac.ae/user_mngr/reset_password.php</string>
+    <string name="activate_account_url">https://my.uowdubai.ac.ae/user_mngr/signup.php</string>
+    <string name="scholarship_url_public">https://www.uowdubai.ac.ae/join-uowd/scholarships/bachelor-scholarships-for-new-students</string>
+    <string name="transportation_url_public">https://www.uowdubai.ac.ae/students/transportation</string>
+    <string name="residences_url">https://www.uowdubai.ac.ae/students/student-accommodation</string>
+    <string name="feedback_url">https://ssd.uowdubai.ac.ae/feedback/</string>
+    <string name="sols_url">https://solss.uow.edu.au/sid/sols_login_auth.do_login</string>
+    <string name="email_url">https://login.microsoftonline.com/</string>
+    <string name="moodle_url">https://moodle.uowplatform.edu.au/login/index.php</string>
+    <string name="graduation_url">https://my.uowdubai.ac.ae/graduation/index.php</string>
+    <string name="scholarship_url">https://my.uowdubai.ac.ae/scholarships/index.php</string>
+    <string name="career_development_url">https://my.uowdubai.ac.ae/ssd/index.php?page=/ssd/career-connect/</string>
+    <string name="transportation_url">https://my.uowdubai.ac.ae/transportation/index.php</string>
+    <string name="career_portal_url">https://employment.uowdubai.ac.ae/uowd/sols/VacancyList.aspx?BusinessUnitID=0&amp;DivisionID=230</string>
+    <string name="registrars_url">https://my.uowdubai.ac.ae/registrar/index.php</string>
+    <string name="src_url">https://my.uowdubai.ac.ae/src/index.php</string>
+    <string name="uowdx_url">https://my.uowdubai.ac.ae/uowdx/index.php</string>
+    <string name="student_life_url">https://my.uowdubai.ac.ae/ssd/index.php</string>
+    <string name="student_visa_url">https://my.uowdubai.ac.ae/visa/index.php</string>
+    <string name="finance_url">https://my.uowdubai.ac.ae/finance/index.php</string>
+    <string name="studiosity_url">https://studiosity.com/connect/users/sign_in</string>
+    <string name="online_book_store_url">https://uae.kinokuniya.com/events/276</string>
 
 </resources>

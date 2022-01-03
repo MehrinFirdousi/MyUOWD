@@ -27,7 +27,7 @@
         android:insetBottom="0dp"
         android:minHeight="45dp"
         android:paddingVertical="0dp"
-        android:text="Login"
+        android:text="@string/login_label"
         android:textAllCaps="false"
         android:letterSpacing="0"
         app:cornerRadius="0dp"
@@ -36,10 +36,10 @@
         app:iconPadding="4dp"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/changePassButton"
+        android:id="@+id/resetPassButton"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="Forgot Password"
+        android:text="@string/forgot_password_label"
         android:textAllCaps="false"
         android:fontFamily="sans-serif"
         app:cornerRadius="0dp"
@@ -58,7 +58,7 @@
         android:id="@+id/activateAccountButton"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="Activate Account"
+        android:text="@string/activate_account_label"
         android:textAllCaps="false"
         android:fontFamily="sans-serif"
         app:cornerRadius="0dp"

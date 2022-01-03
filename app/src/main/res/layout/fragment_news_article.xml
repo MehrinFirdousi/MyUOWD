@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgcolor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/newsImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/campus"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
+                android:id="@+id/closeArticleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add_circle"
+                android:background="@drawable/usericon_background"
+                android:layout_gravity="top|right"
+                android:layout_margin="8dp"
+                android:rotation="45"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/newsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="@string/lorem_ipsum_short"
+            android:textColor="@color/black"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            android:id="@+id/newsArticleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/lorem_ipsum_long" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

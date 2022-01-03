@@ -11,6 +11,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,13 +31,22 @@ public class MainActivityPreLogin extends AppCompatActivity implements Navigatio
     ViewPager2 viewPager;
     ImageView mainNavButton, userButton, backButton, fragNavButton;
     NavigationView navigationView;
-    MaterialButton loginButton;
+    MaterialButton loginButton, resetPasswordButton, activateAccountButton;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_prelogin);
+
+        sp = getSharedPreferences("login", MODE_PRIVATE);
+
+        if(sp.getBoolean("logged",false)){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            this.finish();
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
@@ -138,7 +150,25 @@ public class MainActivityPreLogin extends AppCompatActivity implements Navigatio
                 loginButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        openFragment(LoginFragment.newInstance(), "Log in");
+                        openFragment(LoginFragment.newInstance(sp), "Log in");
+                        drawer.closeDrawer(GravityCompat.START);
+                    }
+                });
+
+                resetPasswordButton = findViewById(R.id.resetPassButton);
+                resetPasswordButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        openFragment(WebPageFragment.newInstance(getString(R.string.reset_password_url)), "Reset Password");
+                        drawer.closeDrawer(GravityCompat.START);
+                    }
+                });
+
+                activateAccountButton = findViewById(R.id.activateAccountButton);
+                activateAccountButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        openFragment(WebPageFragment.newInstance(getString(R.string.activate_account_url)), "Activate Account");
                         drawer.closeDrawer(GravityCompat.START);
                     }
                 });
@@ -171,32 +201,9 @@ public class MainActivityPreLogin extends AppCompatActivity implements Navigatio
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         String itemTag = (String)item.getTitle();
         switch (item.getItemId()) {
-            case R.id.nav_timetable:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
-                break;
-            case R.id.nav_academic_cal:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
-                break;
-            case R.id.nav_forms:
-                openFragment(FormsFragment.newInstance(), itemTag);
-                break;
-            case R.id.nav_policies:
-                openFragment(PoliciesFragment.newInstance(), itemTag);
-                break;
-            case R.id.nav_degreeplanner:
-                openFragment(DegreePlannersFragment.newInstance(), itemTag);
-                break;
-            case R.id.nav_staffdirectory:
-                openFragment(StaffDirectoryFragment.newInstance(), itemTag);
-                break;
-            case R.id.nav_eventcalendar:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
-                break;
-            case R.id.nav_subjectsoffered:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
-                break;
             case R.id.nav_feedback:
-                openFragment(TimetablesFragment.newInstance(), itemTag);
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.feedback_url))); // to open the URL in a browser
+                startActivity(viewIntent);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);

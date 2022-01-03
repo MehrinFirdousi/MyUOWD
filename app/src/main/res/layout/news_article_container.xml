@@ -40,9 +40,10 @@
         android:layout_marginVertical="8dp"/>
 
     <TextView
+        android:id="@+id/readMoreLink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Read More > "
+        android:text="Read More >"
         android:textSize="14sp"
         android:textColor="@color/linkblue"
         android:layout_marginVertical="8dp"/>

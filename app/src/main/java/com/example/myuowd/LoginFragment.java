@@ -1,6 +1,8 @@
 package com.example.myuowd;
 
+import android.app.SharedElementCallback;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,13 +22,14 @@ public class LoginFragment extends Fragment {
 
     MaterialButton signInButton;
     TextView testText;
+    SharedPreferences sp;
 
-    public LoginFragment() {
-        // Required empty public constructor
+    public LoginFragment(SharedPreferences sp) {
+        this.sp = sp;
     }
 
-    public static LoginFragment newInstance() {
-        LoginFragment fragment = new LoginFragment();
+    public static LoginFragment newInstance(SharedPreferences sp) {
+        LoginFragment fragment = new LoginFragment(sp);
         return fragment;
     }
 
@@ -43,9 +46,9 @@ public class LoginFragment extends Fragment {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
+                sp.edit().putBoolean("logged", true).apply();
                 getActivity().finish();
             }
         });

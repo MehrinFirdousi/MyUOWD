@@ -19,7 +19,6 @@ public class NewsFragment extends Fragment {
     int newsArticleCount;
 
     public NewsFragment() {
-        // Required empty public constructor
         newsArticleCount = 4;
         newsArticles = new ArrayList<NewsArticle>(newsArticleCount);
     }
@@ -47,7 +46,7 @@ public class NewsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_news_feed, container, false);
         LinearLayout newsFeedContainer = view.findViewById(R.id.newsFeedContainer);
         for (NewsArticle newsArticle : newsArticles) {
             LinearLayout newsArticleContainer = (LinearLayout) inflater.inflate(R.layout.news_article_container, newsFeedContainer, false);
@@ -62,10 +61,21 @@ public class NewsFragment extends Fragment {
         TextView newsPreview = newsArticleContainer.findViewById(R.id.newsPreview);
         TextView newsAge = newsArticleContainer.findViewById(R.id.newsAge);
         ImageView newsImage = newsArticleContainer.findViewById(R.id.newsImage);
+        TextView readMoreLink = newsArticleContainer.findViewById(R.id.readMoreLink);
+        readMoreLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NewsArticleFragment newsArticleFragment = new NewsArticleFragment(newsArticle);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.enter_from_bottom, R.anim.exit_to_bottom, R.anim.enter_from_bottom, R.anim.exit_to_bottom)
+                        .add(R.id.fragmentContainer, newsArticleFragment, "News Article Fragment")
+                        .addToBackStack("News Article Fragment")
+                        .commit();
+            }
+        });
         newsTitle.setText(newsArticle.title);
         newsPreview.setText(newsArticle.articlePreviewText);
         newsImage.setImageResource(newsArticle.imageSrcId);
         newsAge.setText(newsArticle.age);
     }
-
 }
