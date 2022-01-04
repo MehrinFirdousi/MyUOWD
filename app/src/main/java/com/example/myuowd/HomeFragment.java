@@ -10,9 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     int[] buttonIds = {R.id.solsButton, R.id.emailButton, R.id.moodleButton, R.id.academicCalendarButton, R.id.busRoutesButton, R.id.staffDirectoryButton, R.id.formsButton, R.id.degreePlannerButton, R.id.myTimetableButton, R.id.policiesButton, R.id.campusMapButton, R.id.timetablesButton, R.id.libraryButton, R.id.graduationButton, R.id.scholarshipButton, R.id.careerDevButton, R.id.transportationButton, R.id.careersPortalButton, R.id.registrarsButton, R.id.srcButton, R.id.uowdxButton, R.id.residencesButton, R.id.studentLifeButton, R.id.studentVisaButton, R.id.financeButton, R.id.socialMediaButton, R.id.eventsCalendarButton, R.id.onlineFormsButton, R.id.studiosityButton, R.id.onlineBookStoreButton};
